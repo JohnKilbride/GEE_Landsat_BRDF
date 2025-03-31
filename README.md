@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository provides a Python implementation of the c-factor BRDF logic for use in Google Earth Engine. The algorithm corrects Landsat reflectance data to nadir BRDF-adjusted reflectance (NBAR) using fixed MODIS-derived BRDF spectral model parameters. It accounts for viewing geometry, solar geometry, and band-specific BRDF coefficients to improve reflectance consistency across different Landsat scenes.
+This repository provides a Python implementation of the c-factor BRDF logic in Google Earth Engine. The algorithm corrects Landsat reflectance data to nadir BRDF-adjusted reflectance (NBAR) using fixed MODIS-derived BRDF spectral model parameters. It accounts for viewing geometry, solar geometry, and band-specific BRDF coefficients to improve reflectance consistency across different Landsat scenes.
 
 The Python implementation is based on a JavaScript implementation that was created at Daniel Wiell and Erik Lindquist of the United Nations Food and Agriculture Organization. Their implementation is available at this [link](https://code.earthengine.google.com/0bf07da7cdab0d0ae90962e9259ce8ec).
 
@@ -18,7 +18,7 @@ First, I selected a Landsat 8 scene in Brazil. This image was fed through the or
 
 Second, the same scene was fed through the Python implementation using the demonstration script `examples/usage_example.py`. 
 
-The original image and the two BRDF-adjusted images can be visualized in the GEE playground using this [link](https://code.earthengine.google.com/1752f23fda8e3ebbeff5624c618761cb). If you use the inspector tool, you can see that at each pixel, the values of each band are the same for both images. Similarly, the pixel-level percent difference is 0 everywhere... which is a good sign!
+The original image and the two BRDF-adjusted images can be visualized in the GEE playground using this [link](https://code.earthengine.google.com/07f30bed958fea3ed43446993a699200). If you use the inspector tool, you can see that at each pixel, the values of each band are the same for both images. Similarly, the pixel-level percent difference is 0 everywhere... which is a good sign!
 
 ## Installation
 
