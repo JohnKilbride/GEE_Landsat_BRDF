@@ -5,15 +5,11 @@ Author: John Kilbride
 Date: 2025-03-30
 Description:
     
-    This function implements a Python version of the c-factor BRDF logic for
-    usage in Google Earth Engine. This logic is designed to be mapped over a 
-    collection of Landsat images.
-
-    This Python code was developed based on a Google Earth Engine JavaScript
-    implementation of the c-factor BRDF correction. 
-    
-    Original JavaScript: https://code.earthengine.google.com/3a6761dea6f1bf54b03de1b84dc375c6
-    Original Authors: Daniel Wiell & Erik Lindquist
+    This script demonstrates how to apply BRDF (Bidirectional Reflectance Distribution Function) 
+    correction to a Landsat 8 Collection 2 surface reflectance image using Google Earth 
+    Engine (GEE) with Python. It uses the apply_cfactor_brdf_correction function 
+    from the brdf_correction module to normalize surface reflectance values based 
+    on view and illumination geometry.
     
 """
 
@@ -22,10 +18,8 @@ from brdf_correction.cfactor import apply_cfactor_brdf_correction
 
 ee.Initialize(project='newenglandagb')
 
-if __name__ == "__main__":
-    
-    # Define your GEE username
-    username = "JohnBKilbride"
+
+def main (username: str):
     
     # Load in a Landast 8 Collection 2 image for demonstration
     demo_image = ee.Image("LANDSAT/LC08/C02/T1_L2/LC08_223064_20150818")
@@ -53,9 +47,21 @@ if __name__ == "__main__":
         description = "BRDF-GEE-Python",
         assetId = f'users/{username}/LC08_L1TP_223064_20150818_20200908_02_T1_PYTHON',
         scale = 30, 
-        crs = demo_image.projection().crs().getInfo(),
+        crs = "EPSG:32622",
+        crsTransform = [30,0,628785,0,-30,-523785],
         region = demo_image.geometry(),
         maxPixels = 1e13
         )
     task.start()
+    
+
+if __name__ == "__main__":
+    
+    print("Script start...")
+    main(
+      username = "JohnBKilbride"
+     )
+    print("\n...script complete.")
+    
+
       
