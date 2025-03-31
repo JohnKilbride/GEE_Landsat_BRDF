@@ -1,12 +1,14 @@
-# C-Factor BRDF Correction
+# C-Factor BRDF Correction in GEE w/ Python
 
 ## Overview
 
-This repository provides a Python implementation of the c-factor BRDF logic. The approach corrects Landsat reflectance data to nadir BRDF-adjusted reflectance (NBAR) using fixed MODIS-derived BRDF spectral model parameters. 
+This repository provides a Python implementation of the c-factor BRDF logic for use in Google Earth Engine. The algorithm corrects Landsat reflectance data to nadir BRDF-adjusted reflectance (NBAR) using fixed MODIS-derived BRDF spectral model parameters. It accounts for viewing geometry, solar geometry, and band-specific BRDF coefficients to improve reflectance consistency across different Landsat scenes.
 
-It accounts for viewing geometry, solar geometry, and band-specific BRDF coefficients to improve reflectance consistency across different Landsat scenes.
+The Python implementation is based on a JavaScript implementation that was created at Daniel Wiell and Erik Lindquist of the United Nations Food and Agriculture Organization. Their implementation is available at this [link](https://code.earthengine.google.com/0bf07da7cdab0d0ae90962e9259ce8ec).
 
-The original JavaScript implementation was created at Daniel Wiell and Erik Lindquist of the United Nations Food and Agriculture Organization. The original implementation is available at this [link](https://code.earthengine.google.com/0bf07da7cdab0d0ae90962e9259ce8ec).
+The algorithm is described in detail in Roy et al. 2016 ([paper link](https://www.sciencedirect.com/science/article/pii/S0034425716300220)): 
+
+Roy, D. P., Zhang, H. K., Ju, J., Gomez-Dans, J. L., Lewis, P. E., Schaaf, C. B., ... & Kovalskyy, V. (2016). A general method to normalize Landsat reflectance data to nadir BRDF adjusted reflectance. Remote Sensing of Environment, 176, 255-271.
 
 ## Implementation validation
 
@@ -20,13 +22,15 @@ The original image and the two BRDF-adjusted images can be visualized in the GEE
 
 ## Installation
 
-### A. Simple Option
+### A. The simple option
 
-Simply download or copy the `cfactor.py` script and place it wherever you need it in your local code base or project.
+Download the repository and copy the `cfactor.py` script wherever you need it in your local code base or project. 
 
-### B. Install from GitHub
+### B. Install as a module
+
 1. Clone or download this repository.
-2. (Optional) Install it as a Python package:
+2. Navigate to the repository.
+3. Install it as a Python package:
    ```bash
    pip install .
-3. Then Import the module in your scripts and use the `apply_cfactor_brdf_correction` function as needed.
+4. Then, import the module in your scripts and use the `apply_cfactor_brdf_correction` function as needed.
