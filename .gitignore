@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.pyo
+*.pyd
+
+# Distribution / build artifacts
+build/
+dist/
+*.whl
+
+# Installer metadata
+*.log
+pip-wheel-metadata/

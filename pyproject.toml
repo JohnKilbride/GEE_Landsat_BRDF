@@ -1,0 +1,14 @@
+[project]
+name = "c-factor-brdf"
+version = "1.0.0"
+description = "Python implementation of c-factor BRDF correction using Google Earth Engine"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name="John Kilbride", email="john.b.kilbride@gmail.com" }]
+dependencies = [
+    "earthengine-api"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

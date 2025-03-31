@@ -1,5 +1,23 @@
-import ee
+#!/usr/bin/env python3
+"""
+Script Name: usage_example.py
+Author: John Kilbride
+Date: 2025-03-30
+Description:
+    
+    This function implements a Python version of the c-factor BRDF logic for
+    usage in Google Earth Engine. This logic is designed to be mapped over a 
+    collection of Landsat images.
 
+    This Python code was developed based on a Google Earth Engine JavaScript
+    implementation of the c-factor BRDF correction. 
+    
+    Original JavaScript: https://code.earthengine.google.com/3a6761dea6f1bf54b03de1b84dc375c6
+    Original Authors: Daniel Wiell & Erik Lindquist
+    
+"""
+
+import ee
 from brdf_correction.cfactor import apply_cfactor_brdf_correction
 
 ee.Initialize(project='newenglandagb')

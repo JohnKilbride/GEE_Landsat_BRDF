@@ -13,7 +13,7 @@ Description:
     implementation of the c-factor BRDF correction. 
     
     Original JavaScript: https://code.earthengine.google.com/3a6761dea6f1bf54b03de1b84dc375c6
-    Original Authors: 
+    Original Authors: Daniel Wiell & Erik Lindquist
     
 """
 
