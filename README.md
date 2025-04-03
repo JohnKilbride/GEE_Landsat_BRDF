@@ -10,7 +10,7 @@ The algorithm is described in detail in Roy et al. 2016 ([paper link](https://ww
 
 Roy, D. P., Zhang, H. K., Ju, J., Gomez-Dans, J. L., Lewis, P. E., Schaaf, C. B., ... & Kovalskyy, V. (2016). A general method to normalize Landsat reflectance data to nadir BRDF adjusted reflectance. Remote Sensing of Environment, 176, 255-271.
 
-One modification to note is in the `compute_brdf` function. The original JavaScript implementation muliplied the term "kvol" was multiplied by 3. If this increased weighting is not done than the effects of the BRDF correction are not clear. In practice, this heuristic seems to work well and eliminates cross-track illumination effects.
+One modification to note is in the `compute_brdf` function. The original JavaScript implementation muliplied the term "kvol" by 3. If this increased weighting is not done than the effects of the BRDF correction are not clear. In practice, this heuristic seems to work well and eliminates cross-track illumination effects.
 
 ## Implementation validation
 
