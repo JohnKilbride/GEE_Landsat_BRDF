@@ -12,15 +12,9 @@ Roy, D. P., Zhang, H. K., Ju, J., Gomez-Dans, J. L., Lewis, P. E., Schaaf, C. B.
 
 One modification to note is in the `compute_brdf` function. The original JavaScript implementation muliplied the term "kvol" by 3. If this increased weighting is not done than the effects of the BRDF correction are not clear. In practice, this heuristic seems to work well and eliminates cross-track illumination effects.
 
-## Implementation validation
+## Usage
 
-To verify that this Python implementation produces the same results as as the JavaScript implementation a small test was conducted 
-
-First, I selected a Landsat 8 scene in Brazil. This image was fed through the original JavaScript implementation of the c-factor BRDF algorithm. The GEE script used is available at this [link](https://code.earthengine.google.com/dadb5bffce05dc52f282b9e0688acd79).
-
-Second, the same scene was fed through the Python implementation using the demonstration script `examples/usage_example.py`. 
-
-The original image and the two BRDF-adjusted images can be visualized in the GEE playground using this [link](https://code.earthengine.google.com/07f30bed958fea3ed43446993a699200). If you use the inspector tool, you can see that at each pixel, the values of each band are the same for both images. Similarly, the pixel-level percent difference is 0 everywhere... which is a good sign!
+The core functionality for the package is the `apply_cfactor_brdf_correction` function. This function is designed to be mapped over a collection of Landsat satellite imagery. This function expects that the Landsat scenes have the TM/ETM+ naming scheme (i.e., "B1", "B2", "B3", "B4", "B5", and "B7"). If this is not desireable, you can easily modify the keys in the *coeffs_by_band* dictionary contained in the `apply_cfactor_brdf_correction` function.
 
 ## Installation
 
@@ -36,6 +30,16 @@ Download the repository and copy the `cfactor.py` script wherever you need it in
    ```bash
    pip install .
 4. Then, import the module in your scripts and use the `apply_cfactor_brdf_correction` function as needed.
+
+## Implementation validation
+
+To verify that this Python implementation produces the same results as as the JavaScript implementation a small test was conducted 
+
+First, I selected a Landsat 8 scene in Brazil. This image was fed through the original JavaScript implementation of the c-factor BRDF algorithm. The GEE script used is available at this [link](https://code.earthengine.google.com/dadb5bffce05dc52f282b9e0688acd79).
+
+Second, the same scene was fed through the Python implementation using the demonstration script `examples/usage_example.py`. 
+
+The original image and the two BRDF-adjusted images can be visualized in the GEE playground using this [link](https://code.earthengine.google.com/07f30bed958fea3ed43446993a699200). If you use the inspector tool, you can see that at each pixel, the values of each band are the same for both images. Similarly, the pixel-level percent difference is 0 everywhere... which is a good sign!
 
 ## Improvements? Bugs?
 
