@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script Name: cfactor_brdf.py
+Script Name: cfactor.py
 Author: John Kilbride
 Date: 2025-03-30
 Description:
